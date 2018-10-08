@@ -2,12 +2,13 @@
 
 public class Bullet : MonoBehaviour
 {
-    private Rigidbody2D _rigidbody2D;
-    [SerializeField] private float _speed = 6;
-
-    private void Awake()
+    [SerializeField] private float _damage = 1;
+    
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        _rigidbody2D.velocity = new Vector2(_speed, 0);
+        Health health;
+        if ((health = other.gameObject.GetComponent<Health>()) != null)
+            health.TakeDamage(_damage);
+        Destroy(gameObject);
     }
 }

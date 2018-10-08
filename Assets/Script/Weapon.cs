@@ -1,17 +1,24 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
-public class Weapon : MonoBehaviour
+public abstract class Weapon : MonoBehaviour
 {
-    [SerializeField] private Bullet _bullet;
-    [SerializeField] private float _rateOfFire = 1;
     private float _lastHitTime;
+    [SerializeField] private UnityEvent _onFire;
+    [SerializeField] private float _rateOfFire = 1;
+    [SerializeField] private bool _setAngle = true;
 
-    private void Update()
+    protected abstract GameObject CurrentBullet { get; }
+
+    public void Fire()
     {
-        if (Input.GetKey(KeyCode.Space) && ((Time.time - _lastHitTime) > _rateOfFire))
-        {
-            Instantiate(_bullet, transform);
-            _lastHitTime = Time.time;
-        }
+        if (Time.time - _lastHitTime <= _rateOfFire) return;
+
+        var bullet = Instantiate(CurrentBullet);
+        _onFire.Invoke();
+        bullet.transform.position = transform.position;
+        bullet.layer = gameObject.layer;
+        if (_setAngle) bullet.transform.rotation = transform.rotation;
+        _lastHitTime = Time.time;
     }
 }
