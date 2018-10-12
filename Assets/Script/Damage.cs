@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Damage : MonoBehaviour
 {
     [SerializeField] private float _damage = 1;
     
