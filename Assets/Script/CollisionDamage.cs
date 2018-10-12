@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class Damage : MonoBehaviour
+public class CollisionDamage : MonoBehaviour
 {
     [SerializeField] private float _damage = 1;
     
@@ -9,6 +9,5 @@ public class Damage : MonoBehaviour
         Health health;
         if ((health = other.gameObject.GetComponent<Health>()) != null)
             health.TakeDamage(_damage);
-        Destroy(gameObject);
     }
 }

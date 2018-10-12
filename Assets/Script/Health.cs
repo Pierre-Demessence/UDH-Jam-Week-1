@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class Health : MonoBehaviour
@@ -6,7 +7,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float _health = 10;
     [SerializeField] private float _invulnerabilityTime;
     private float _lastDamageTime;
-    [SerializeField] private UnityEvent _onTakeDamage;
+    [SerializeField] private TakeDamageEvent _onTakeDamage;
 
     public float Value => _health;
 
@@ -16,7 +17,7 @@ public class Health : MonoBehaviour
 
         _health -= amount;
         if (_health <= 0) Destroy(gameObject);
-        _onTakeDamage.Invoke();
+        _onTakeDamage.Invoke(_health);
         _lastDamageTime = Time.time;
     }
 
@@ -24,4 +25,9 @@ public class Health : MonoBehaviour
     {
         _health += amount;
     }
+}
+
+[Serializable]
+internal class TakeDamageEvent : UnityEvent<float>
+{
 }

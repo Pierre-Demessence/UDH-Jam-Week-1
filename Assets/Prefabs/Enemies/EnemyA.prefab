@@ -20,6 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4569082742051370}
   - component: {fileID: 114500844794028282}
+  - component: {fileID: 114716605405687370}
+  - component: {fileID: 114507317578420280}
+  - component: {fileID: 114624948240176280}
+  - component: {fileID: 114621780838427170}
   - component: {fileID: 114223141676953086}
   - component: {fileID: 212371414580688636}
   - component: {fileID: 50983936343089166}
@@ -149,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2f8f9b3ce6ec0468d1113eb4c3de63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homingRadius: 3
+  _homingRadius: 5
   _rotationSpeed: 3
   _targetLayer:
     serializedVersion: 2
@@ -170,8 +174,58 @@ MonoBehaviour:
   _onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
+    m_TypeName: TakeDamageEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
+--- !u!114 &114507317578420280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265329912571944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77f937a2b696e740bbe5f32fc0aa778, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _points: 5
+--- !u!114 &114621780838427170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265329912571944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0807b3568a03b4045bd3330da3ad785e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1
+  _direction: {x: -0.5, y: 0}
+--- !u!114 &114624948240176280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265329912571944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ff297f506d52b6408863d3821f10626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _movements:
+  - {fileID: 114621780838427170}
+--- !u!114 &114716605405687370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265329912571944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60193b580fb3b7347925aa20e88e5145, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
 --- !u!114 &114838220158021778
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -188,9 +242,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  _rateOfFire: 1
+  _rateOfFire: 2
   _setAngle: 1
-  _bullet: {fileID: 1881366401851226, guid: 530f18f04c5a0e547b483c4a1ab644ef, type: 2}
+  _bullet: {fileID: 1220200325535440, guid: 1be627c4172c3eb43a4afd638926c050, type: 2}
 --- !u!212 &212371414580688636
 SpriteRenderer:
   m_ObjectHideFlags: 1
