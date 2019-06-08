@@ -18,9 +18,9 @@ public class GameCtrl : MonoBehaviour
 
     private float _weaponCharge;
 
-    public int Score
+    private int Score
     {
-        get { return _score; }
+        get => _score;
         set
         {
             _score = value;
@@ -30,7 +30,7 @@ public class GameCtrl : MonoBehaviour
 
     public float WeaponCharge
     {
-        get { return _weaponCharge; }
+        get => _weaponCharge;
         set
         {
             _weaponCharge = value;
@@ -38,7 +38,7 @@ public class GameCtrl : MonoBehaviour
         }
     }
 
-    public void UpdatePlayerHealth(float health)
+    private void UpdatePlayerHealth(float health)
     {
         _textPlayerHealth.text = $"Health: {health}/10";
     }
