@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4263026079451216}
   - component: {fileID: 114627555049115898}
+  - component: {fileID: -795604569511001263}
   - component: {fileID: 114222433195323754}
   - component: {fileID: 114442754620728506}
   - component: {fileID: 114885081272622914}
@@ -52,11 +53,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2f8f9b3ce6ec0468d1113eb4c3de63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _canFindBetterTarget: 1
   _homingRadius: 5
-  _rotationSpeed: 5
+  _onNewTargetAcquired:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -795604569511001263}
+        m_MethodName: set_Target
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: NewTargetAcquired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   _targetLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &-795604569511001263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314494876394264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766025c51fff40e4aaf00348c0ddcefc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rotationSpeed: 5
 --- !u!114 &114222433195323754
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +260,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _health: 1
   _invulnerabilityTime: 0
+  _onInvincibilityTriggered:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: InvincibilityTriggeredEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+      PublicKeyToken=null
   _onTakeDamage:
     m_PersistentCalls:
       m_Calls: []
