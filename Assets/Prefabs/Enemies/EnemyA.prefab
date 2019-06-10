@@ -131,8 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2f8f9b3ce6ec0468d1113eb4c3de63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _canFindBetterTarget: 1
   _homingRadius: 5
+  _keepLookingForTargets: 1
   _onNewTargetAcquired:
     m_PersistentCalls:
       m_Calls:
