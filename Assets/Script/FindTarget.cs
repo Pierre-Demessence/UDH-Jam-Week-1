@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class FindTarget : MonoBehaviour
 {
-    private readonly Collider2D[] _availableTargets = new Collider2D[10];
-    [SerializeField] private float _homingRadius = 3;
     [SerializeField] private bool _keepLookingForTargets = true;
     [SerializeField] private NewTargetAcquired _onNewTargetAcquired;
     private GameObject _target;
-    [SerializeField] private LayerMask _targetLayer;
+    [SerializeField, InlineEditor] private FindTargets _findTargets;
+    [SerializeField, InlineEditor]  private TargetComparator _targetComparator;
 
     private GameObject Target
     {
@@ -24,28 +22,9 @@ public class FindTarget : MonoBehaviour
         }
     }
 
-    private List<GameObject> FindTargets()
-    {
-        Array.Clear(_availableTargets, 0, 10);
-        Physics2D.OverlapCircleNonAlloc(transform.position, _homingRadius, _availableTargets, _targetLayer);
-        return _availableTargets.ToList().FindAll(c => c).ConvertAll(input => input.gameObject);
-    }
-
-    private GameObject FindBestTarget(IReadOnlyCollection<GameObject> targets)
-    {
-        if (targets.Count == 0) return null;
-        
-        var target = targets.First();
-        foreach (var availableTarget in targets.Skip(1))
-            if (Vector2.Distance(transform.position, availableTarget.transform.position) < Vector2.Distance(transform.position, target.transform.position))
-                target = availableTarget;
-
-        return target;
-    }
-
     private void Update()
     {
-        Target = FindBestTarget(FindTargets());
+        Target = _targetComparator.Find(_findTargets.Find());
     }
 }
 

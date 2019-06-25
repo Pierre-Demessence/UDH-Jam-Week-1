@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 95942826957550020}
   - component: {fileID: 7511758169855239432}
   - component: {fileID: -2112614176705226378}
+  - component: {fileID: 3256892189368612965}
+  - component: {fileID: 147791886417943085}
   m_Layer: 8
   m_Name: Missile
   m_TagString: Untagged
@@ -53,7 +55,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2f8f9b3ce6ec0468d1113eb4c3de63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homingRadius: 3
   _keepLookingForTargets: 1
   _onNewTargetAcquired:
     m_PersistentCalls:
@@ -71,9 +72,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: NewTargetAcquired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  _targetLayer:
-    serializedVersion: 2
-    m_Bits: 512
+  _findTargets: {fileID: 3256892189368612965}
+  _targetComparator: {fileID: 147791886417943085}
 --- !u!114 &-795604569511001263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,3 +287,32 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &3256892189368612965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314494876394264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186a4b43460f4a12b64f19a4fdd4d032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _homingRadius: 3
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!114 &147791886417943085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314494876394264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb7eb53ac13423caa2c1d6bf7c89add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reverse: 0

@@ -19,6 +19,8 @@ GameObject:
   - component: {fileID: 212371414580688636}
   - component: {fileID: 50983936343089166}
   - component: {fileID: 60229616579021432}
+  - component: {fileID: 2549242983259248037}
+  - component: {fileID: -7064579573910070297}
   m_Layer: 9
   m_Name: EnemyA
   m_TagString: Untagged
@@ -131,7 +133,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d2f8f9b3ce6ec0468d1113eb4c3de63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _homingRadius: 5
   _keepLookingForTargets: 1
   _onNewTargetAcquired:
     m_PersistentCalls:
@@ -149,9 +150,8 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: NewTargetAcquired, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
-  _targetLayer:
-    serializedVersion: 2
-    m_Bits: 256
+  _findTargets: {fileID: -7064579573910070297}
+  _targetComparator: {fileID: 2549242983259248037}
 --- !u!114 &3163126471636595161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +266,35 @@ PolygonCollider2D:
       - {x: 0.114999995, y: -0.13}
       - {x: 0.114999995, y: 0.12}
       - {x: 0.085, y: 0.13}
+--- !u!114 &2549242983259248037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265329912571944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb7eb53ac13423caa2c1d6bf7c89add, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _reverse: 0
+--- !u!114 &-7064579573910070297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265329912571944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 186a4b43460f4a12b64f19a4fdd4d032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _homingRadius: 3
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!1 &1954746202599924
 GameObject:
   m_ObjectHideFlags: 0
