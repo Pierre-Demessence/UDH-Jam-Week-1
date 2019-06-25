@@ -158,6 +158,13 @@ $RECYCLE.BIN/
 
 
 # End of https://www.gitignore.io/api/unity,rider,windows
-Assets/Plugins/Sirenix/
 
-Assets/Plugins/Sirenix\.meta
+Assets/Plugins/Sirenix/**
+
+!Assets/Plugins/Sirenix\.meta
+!Assets/Plugins/Sirenix/Assemblies\.meta
+
+!Assets/Plugins/Sirenix/Assemblies/Sirenix\.OdinInspector\.Attributes\.dll
+!Assets/Plugins/Sirenix/Assemblies/Sirenix\.OdinInspector\.Attributes\.dll\.meta
+!Assets/Plugins/Sirenix/Assemblies/Sirenix\.OdinInspector\.Attributes\.xml
+!Assets/Plugins/Sirenix/Assemblies/Sirenix\.OdinInspector\.Attributes\.xml\.meta
